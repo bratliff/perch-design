@@ -51,9 +51,30 @@
             <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' %}class="selected"{% endif %}><a href="/products">Products</a></li>{% for page in pages.all limit:2 %}<li {% if page.full_url contains page.url %}class="selected"{% endif %}>{{ page | link_to }}</li>{% endfor %}<li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact">Contact</a></li><li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Cart</a></li>
           </ul>
         </nav>
+
+        <aside class="category_nav {% if artists.active != blank && categories.active != blank %}double{% endif %}">
+            <nav class="categories">
+              <ul>
+                <li class="{% if page.full_url contains '/products' %}selected{% endif %}"><a href="/products">all</a></li>    
+                {% for category in categories.active %}
+                <li class="page {% if page.full_url contains category.url %}selected{% endif %}">{{ category | link_to }}</li>
+                {% endfor %}
+              </ul>
+            </nav>     
+            {% if artists.active != blank %}
+            <nav class="artists">
+              <h3>Artists</h3>
+              <ul>
+                {% for artist in artists.active %}
+                <li class="page {% if page.full_url contains artist.url %}selected{% endif %}">{{ artist | link_to }}</li>
+                {% endfor %}
+              </ul>
+            </nav>       
+            {% endif %} 
+          </aside>
       
         <header>
-          {% if theme.image != blank %}
+          <!--{% if theme.image != blank %}
           <div id="branding">
             <a href="/">
               <h2>{{ page.name }}</h2>
@@ -64,7 +85,7 @@
             <h1 id="store_name"><a href="/">{{ store.name }}</a></h1>      
           {% else %}
             <h2 id="store_name"><a href="/">{{ store.name }}</a></h2>  
-          {% endif %}
+          {% endif %}-->
         </header>
       
         <nav id="mobile_nav">
