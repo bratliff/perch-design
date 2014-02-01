@@ -325,7 +325,7 @@ label {
 -------------------------------------------------------------- */
 
 .strip {
-  overflow: hidden;
+  /*overflow: hidden;*/
   background: transparent;
   }
 
@@ -474,7 +474,6 @@ label {
 #main_nav {
   overflow: hidden;
   margin: 0 auto; 
-  background:#2B4D75;
   color:#fff;
   height:80px;
   }   
@@ -750,8 +749,8 @@ label {
   text-align: center;
   margin: 0;   
   text-align:left;
-  background:#000;
   color:#fff;
+  font-size:3em;
   }  
   
 .category_nav.double nav.categories,
@@ -2719,16 +2718,79 @@ a:active,
   top:150px;
   left:0px;
   z-index:20;
+  font-size:3em;
+  color:#000;
 }
 
+.categories ul li {
+ margin:20px;
+}
+
+
+.categories ul li a {
+ color:#fff;
+ font-size:2.4em;
+}
+
+.categories ul li a:hover {
+ color:#e96309;
+}
+
+#main_nav {
+  position:fixed;
+  width:100%;
+  z-index:20;
+  background:#a1a741;
+}
 #main_nav ul li {
   border:none;
+}
+
+#main_nav ul {
+  position:absolute;
+  left:200px;
+  top:10px;
 }
 
 #products_page #content {
 margin:-10px auto 10px auto;
 width:900px;
 }
+
+.home-hero {
+width:5600px; 
+height:600px;
+margin-top:8px;
+}
+
+.home-hero div {
+  width:900px;
+  height:600px;
+  background-size:100%;
+  float:left;
+  margin:0 10px 0 0;
+  padding:0;
+}
+
+.home-hero div img{
+  width:100%;
+}
+
+#logo {
+  width:300px;
+}
+
+#site_header {
+  height:82px;
+  z-index:20;
+}
+
+#site_footer {
+  position:fixed;
+  top:610px;
+  left:20px;
+}
+
 
 @media screen and (max-width: 860px) {
     #products_page #content {
