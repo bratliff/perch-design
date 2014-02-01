@@ -1,3 +1,6 @@
+@charset "UTF-8";
+/* CSS Document */
+
 /*
  * jQuery FlexSlider v2.0
  * http://www.woothemes.com/flexslider/
@@ -109,6 +112,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility; 
   background: #fff;
+  font-family: "arial,helvetica,sans-serif",
   }
   
 ::-moz-selection{ background: yellow; color:#333; }
@@ -117,7 +121,7 @@ body {
 p, blockquote, ul, ol, dl {
   font-size: 15px;
   margin-bottom: 1.2em; 
-  line-height: 1.3em;
+  line-height: 1.6em;
   }
 
 strong, b { font-weight: bold; }
@@ -340,6 +344,7 @@ label {
 #page_body {
   width: 530px;
   margin: 0 auto;
+  line-height:1.6em;
   }
     
     
@@ -405,6 +410,8 @@ label {
   font-size: 12px;
   -webkit-font-smoothing: subpixel-antialiased;   
   zoom: 1;
+  font-size: 1em;
+  text-transform:lowercase;
   }
 
 #site_footer li a {
@@ -412,6 +419,7 @@ label {
   padding: 0 8px;
   border: none;
   zoom: 1;
+  text-transform:lowercase;
   }
 
 #site_footer footer p {
@@ -471,7 +479,7 @@ label {
 
 #main_nav li {
   display: inline-block;
-  font-size: 10px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
   -webkit-font-smoothing: subpixel-antialiased;

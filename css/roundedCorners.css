@@ -1,0 +1,58 @@
+/* NAV begin rounded corners */
+
+.roundbox-tr {
+	/*margin:15px auto;*/
+	padding:0;
+	background:url("images/top-right.png") no-repeat right top;
+	width: 100%;
+}
+
+/* top-left corner and left side */
+.roundbox-tl {
+	margin:0;
+	padding:0;
+	background:   url("images/top-left.png") no-repeat left top;
+}
+
+/* bottom-right corner and bottom side */
+.roundbox-br {
+	margin:0;
+	padding:0;
+	background:   url("images/bottom-right.png") no-repeat right bottom;
+}
+
+/* bottom-left corner */
+.roundbox-bl {
+	margin:0;
+	padding:0;
+	background:   url("images/bottom-left.png") no-repeat left bottom;
+}
+
+
+/* content div, it could be omitted (the content going into "roundbox-bl" but I felt that alinging the content was easier 
+with "roundbox-content" in place */
+.roundbox-content {
+	margin:0;
+}
+
+.roundbox-content p {
+	margin:0;
+	padding:0;
+	line-height:1.6;
+}
+/* NAV end rounded corners */
+
+#csc {
+  margin : auto;
+}
+#csc h2 {
+  color : #ffffdd;
+  font-weight : normal;
+  margin-bottom : 10px;
+}
+#csc p {
+  color : #fff;
+  margin-bottom : 10px;
+}
+
+
