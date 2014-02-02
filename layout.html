@@ -21,10 +21,12 @@
     {% endif %}  
   
     <link rel="stylesheet" href="{{ theme | theme_css_url }}">  
-    <link rel="stylesheet" href=""> 
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css'>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
     <script src="{{ theme | theme_js_url }}" type="text/javascript"></script>
+    <script src="http://www.perchdesign.net/js/bigcartel.js" type="text/javascript"></script>
     
     <script type="text/javascript" charset="utf-8">
       $(function() {
@@ -48,7 +50,7 @@
     <div id="site_header" class="strip">
       <div class="canvas">
         <nav id="main_nav">
-          <div id="logo"><a href="home.html"><img src="http://www.perchdesign.net/images/bigcartel/perch-logo-white.png" /></a></div>
+          <div id="logo"><a href="/"><img src="http://www.perchdesign.net/images/bigcartel/perch-logo-white.png" /></a></div>
           <ul>
             <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' %}class="selected"{% endif %}><a href="/products">Products</a></li>{% for page in pages.all limit:2 %}<li {% if page.full_url contains page.url %}class="selected"{% endif %}>{{ page | link_to }}</li>{% endfor %}<li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact">Contact</a></li><li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Cart</a></li>
           </ul>
@@ -176,9 +178,7 @@
     {% endif %}
   
     <div id="site_footer" class="strip">
-      <footer class="canvas">
-        <h3>More</h3>
-        <ul>
+      <footer class="canvas">        <ul>
           <li><a href="/" alt="Home">Home</a></li>      
           <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' %}class="selected"{% endif %}><a href="/products">Products</a></li>
         
@@ -193,22 +193,15 @@
           {% if theme.facebook_username != blank %}
           <li><a href="http://facebook.com/{{ theme.facebook_username }}" title="Friend us on Facebook">Facebook</a></li>
           {% endif %}
-          {% if theme.show_search %}
-          <li id="search">
-            <form id="search-form" name="search" action="/products" method="get">
-              <a href="#search-form">Search</a>
-              <input id="search-input" name="search" type="text">
-            </form>
-          </li>
-          {% endif %}         
+          <li>Copyright &copy; {{ 'Today' | date: "%Y" }} {{ store.name }}</li>
+          <li> {{ bigcartel_credit }}     </li>       
         </ul>
-        <p>Copyright &copy; {{ 'Today' | date: "%Y" }} {{ store.name }}</p>
+        
       
         {% if store.website != blank %}
         <a href="{{ store.website }}" id="website" class="button">Back to site</a>
         {% endif %}
-      
-        <div id="badge">{{ bigcartel_credit }}</div>      
+       
       </footer>
     </div>    
   </body>
