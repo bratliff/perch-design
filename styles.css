@@ -2720,6 +2720,18 @@ a:active,
   Colors + Custom Styles - add and override styles below
 ============================================================*/
 
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('bebasneue-webfont.eot');
+    src: url('bebasneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('bebasneue-webfont.woff') format('woff'),
+         url('bebasneue-webfont.ttf') format('truetype'),
+         url('bebasneue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .categories {
   position:fixed;
   top:150px;
@@ -2728,7 +2740,7 @@ a:active,
   font-size:3em;
   color:#000;
   font-weight:300;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'bebas_neueregular', sans-serif;
 }
 
 .categories ul li {
@@ -2746,14 +2758,14 @@ a:active,
 }
 
 .categories ul li a:hover {
- color:#e96309;
+ color:#DFC323;
 }
 
 #main_nav {
   position:fixed;
   width:100%;
   z-index:101;
-  background:#aab3ab;
+  background:#A0BFC6;
   height:80px;
 }
 
@@ -2769,7 +2781,7 @@ a:active,
 }
 
 #main_nav ul li a:hover{
-  color:#e96309;
+  color:#DFC323;
 }
 
 #main_nav ul {
@@ -2861,7 +2873,7 @@ margin-top:8px;
   position:fixed;
   bottom:0;
   left:0;
-  background:#aab3ab;
+  background:#A0BFC6;
   color:#fff;
   height:60px;
   width:100%;
@@ -2899,26 +2911,24 @@ margin:0;
 }
 
 #site_footer footer ul li a:hover {
-   color:#e96309;
+   color:#DFC323;
 }
 
-#site_header .social-links {
-position:fixed;
-top:90px;
-right:0;
-z-index:110;
+#site_footer .social-links {
+position:relative;
+float:right;
+margin:16px 50px 0 0;
 }
 
-#site_header .social-links li {
+
+#site_footer .social-links li {
   padding:0;
   margin:0;
-  border:none;
   display:block;
+  float:left;
+  position:relative;
 }
 
-#site_header .social-links li a {
-  border:none;
-}
 
 .menu-btn {
   float:right;
@@ -3022,6 +3032,19 @@ z-index:110;
       float:none;
     }
 
+    #site_footer .social-links {
+      position:fixed;
+      right:0;
+      top:100px;
+      margin:0;
+      }
+
+      #site_footer .social-links li {
+        display:block;
+        float:none;
+        position:relative;
+      }
+
    .product {
     background:#ccc;
    }
@@ -3058,6 +3081,22 @@ z-index:110;
         height:100%;
         width:100%;
         padding:0;
+      }
+
+      #site_footer .social-links {
+      right:0;
+      top:30px;
+      margin:0;
+      border:none;
+      width:150px;
+      }
+
+      #site_footer .social-links li {
+        display:block;
+        float:left;
+        position:relative;
+        border:none;
+
       }
 
     #product_page #content {

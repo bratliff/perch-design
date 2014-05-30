@@ -21,9 +21,13 @@
     {% endif %}  
   
     <link rel="stylesheet" href="{{ theme | theme_css_url }}">  
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Allura' rel='stylesheet' type='text/css'>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
     <script src="{{ theme | theme_js_url }}" type="text/javascript"></script>
+    <script src="http://www.perchdesign.net/js/bigcartel.js" type="text/javascript"></script>
+
     
     <script type="text/javascript" charset="utf-8">
       $(function() {
@@ -46,14 +50,40 @@
   <body id="{{ page.permalink }}_page" class="{{ page.category }} no_transition">
     <div id="site_header" class="strip">
       <div class="canvas">
+        <!-- social links -->
+
         <nav id="main_nav">
+          <div id="logo"><a href="/"><img src="http://www.perchdesign.net/images/bigcartel/perch-logo-white.png" /></a></div>
           <ul>
-            <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' %}class="selected"{% endif %}><a href="/products">Products</a></li>{% for page in pages.all limit:2 %}<li {% if page.full_url contains page.url %}class="selected"{% endif %}>{{ page | link_to }}</li>{% endfor %}<li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact">Contact</a></li><li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Cart</a></li>
+            <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' %}class="selected"{% endif %}><a href="/products">Products</a></li><li><a href="http://www.perchdesign.net/press">Press</a></li><li><a href="http://www.perchdesign.net">Blog</a></li><li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact">Contact</a></li><li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Cart</a></li>
           </ul>
         </nav>
+
+        <aside class="category_nav {% if artists.active != blank && categories.active != blank %}double{% endif %}">
+            <nav class="categories">
+              <ul>   
+                {% for category in categories.active %}
+                <li class="page {% if page.full_url contains category.url %}selected{% endif %}">{{ category | link_to }}</li>
+                {% endfor %}
+              </ul>
+
+              <div class="menu-btn"><img src="http://www.perchdesign.net/images/bigcartel/arrow.png" /></div>
+            </nav>     
+            {% if artists.active != blank %}
+            <nav class="artists">
+              <h3>Artists</h3>
+              <ul>
+                {% for artist in artists.active %}
+                <li class="page {% if page.full_url contains artist.url %}selected{% endif %}">{{ artist | link_to }}</li>
+                {% endfor %}
+              </ul>
+            </nav>       
+            {% endif %} 
+
+          </aside>
       
         <header>
-          {% if theme.image != blank %}
+          <!--{% if theme.image != blank %}
           <div id="branding">
             <a href="/">
               <h2>{{ page.name }}</h2>
@@ -64,7 +94,7 @@
             <h1 id="store_name"><a href="/">{{ store.name }}</a></h1>      
           {% else %}
             <h2 id="store_name"><a href="/">{{ store.name }}</a></h2>  
-          {% endif %}
+          {% endif %}-->
         </header>
       
         <nav id="mobile_nav">
@@ -153,39 +183,34 @@
     {% endif %}
   
     <div id="site_footer" class="strip">
-      <footer class="canvas">
-        <h3>More</h3>
-        <ul>
+      <footer class="canvas">        
+          <ul class="site-links">
           <li><a href="/" alt="Home">Home</a></li>      
           <li {% if page.full_url contains '/products' or page.full_url contains '/product/' or page.full_url contains '/category/' %}class="selected"{% endif %}><a href="/products">Products</a></li>
-        
+          <li><a href="http://www.perchdesign.net">Blog</a></li>
           {% for page in pages.all %}
           <li>{{ page | link_to }}</li>
           {% endfor %}      
           <li><a href="/contact">Contact</a></li>
           <li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart">Cart</a></li>        
-          {% if theme.twitter_username != blank %}
-          <li><a href="http://twitter.com/{{ theme.twitter_username }}" title="Follow us on Twitter">Twitter</a></li>
-          {% endif %}
-          {% if theme.facebook_username != blank %}
-          <li><a href="http://facebook.com/{{ theme.facebook_username }}" title="Friend us on Facebook">Facebook</a></li>
-          {% endif %}
-          {% if theme.show_search %}
-          <li id="search">
-            <form id="search-form" name="search" action="/products" method="get">
-              <a href="#search-form">Search</a>
-              <input id="search-input" name="search" type="text">
-            </form>
-          </li>
-          {% endif %}         
+          <!-- <li> {{ bigcartel_credit }}     </li> -->      
+          </ul>
+           <ul class="social-links">
+            {% if theme.twitter_username != blank %}
+              <li><a href="http://twitter.com/{{ theme.twitter_username }}" title="Follow us on Twitter"><img src="http://perchdesign.net/blog/wp-content/uploads/2014/02/twitter-bw.png" width="30" /></a></li>
+              {% endif %}
+              {% if theme.facebook_username != blank %}
+              <li><a href="http://facebook.com/{{ theme.facebook_username }}" title="Friend us on Facebook"><img src="http://perchdesign.net/blog/wp-content/uploads/2014/02/fb-bw.png" width="30" /></a></li>
+              {% endif %}
+              <li><a href="http://www.pinterest.com/amyperch" title="Amy on Pinterest"><img src="http://perchdesign.net/blog/wp-content/uploads/2014/02/pin-bw.png" width="30" /></a></li>
+              <li><a href="http://instagram.com/aeaperch" title="Amy on Instagram"><img src="http://perchdesign.net/blog/wp-content/uploads/2014/02/instagram-bw.png" width="30" /></a></li>
         </ul>
-        <p>Copyright &copy; {{ 'Today' | date: "%Y" }} {{ store.name }}</p>
+        
       
         {% if store.website != blank %}
         <a href="{{ store.website }}" id="website" class="button">Back to site</a>
         {% endif %}
-      
-        <div id="badge">{{ bigcartel_credit }}</div>      
+       
       </footer>
     </div>    
   </body>
